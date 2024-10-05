@@ -2,6 +2,7 @@
 
 cd
 
+
 NODE_URL="http://45.76.154.161:56657"
 
 echo "NODE_URL: $NODE_URL"
@@ -11,7 +12,7 @@ if ! command -v allorad &> /dev/null; then
     echo "Allorad not found. Installing allorad..."
     read -p "Enter version to install (ex: 0.5.0): " version
     curl -sSL https://raw.githubusercontent.com/allora-network/allora-chain/main/install.sh | bash -s -- v$version
-    echo "export PATH=\$PATH:\$HOME/.local/bin" >> ~/.bash_profile
+    echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bash_profile
     source ~/.bash_profile
 else
     echo "Allorad already installed."
@@ -30,12 +31,10 @@ rm -f requirements.txt && wget https://raw.githubusercontent.com/lyhaithanh/Allo
 rm -f app.py && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master/app.py
 mkdir -p wl_backup
 backup_wl_file="wl_formated_$(date +'%Y%m%d_%H%M%S').txt"
-
-# Sử dụng cp để sao chép file thay vì di chuyển
 cp $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
-echo "Đã sao chép file vào $HOME/wl_backup"
+echo "ĐÃ SAO CHÉP FILE VÀO $HOME/wl_backup"
 
-# Đọc file wl_formated.txt và tạo các file cấu hình
+# Doc file wl_formated.txt va tao cac file cau hinh
 i=1
 while IFS='|' read -r address mnemonic; do
     mnemonic=$(echo "$mnemonic" | tr -cd 'a-z ')
