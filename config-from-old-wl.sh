@@ -26,16 +26,16 @@ cd allora-huggingface-walkthrough
 
 # Tải về các file cần thiết
 cd $HOME/allora-huggingface-walkthrough
-rm -f requirements.txt && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master//requirements.txt
-rm -f app.py && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master/app.py
-
-# Tạo thư mục backup và di chuyển file
+rm -f requirements.txt && wget --header="Authorization: token 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" https://raw.githubusercontent.com/batuoc263/prometheus-grafana-installer/master/dashboard-example/script/requirements.txt
+rm -f app.py && wget --header="Authorization: token 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" https://raw.githubusercontent.com/batuoc263/prometheus-grafana-installer/master/dashboard-example/script/app.py
 mkdir -p wl_backup
 backup_wl_file="wl_formated_$(date +'%Y%m%d_%H%M%S').txt"
-cp $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
-echo "DA BACK UP FILE VAO $HOME/wl_backup"
 
-# Đọc file wl_formated.txt từ thư mục backup và tạo các file cấu hình
+# Sử dụng cp để sao chép file thay vì di chuyển
+cp $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
+echo "Đã sao chép file vào $HOME/wl_backup"
+
+# Đọc file wl_formated.txt và tạo các file cấu hình
 i=1
 while IFS='|' read -r address mnemonic; do
     mnemonic=$(echo "$mnemonic" | tr -cd 'a-z ')
@@ -129,4 +129,4 @@ while IFS='|' read -r address mnemonic; do
 }
 EOF
     i=$((i+1))
-done < $HOME/wl_backup/$backup_wl_file  # Đọc từ file backup
+done < $HOME/wl_formated.txt
