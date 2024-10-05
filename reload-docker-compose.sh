@@ -60,6 +60,11 @@ volumes:
 EOF
 
 echo "==========Building...============"
+sudo apt update
+sudo apt install docker.io
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+cd allora-huggingface-walkthrough
 docker-compose up --build -d
 
 curl -s http://127.0.0.1:8000/collect-price
