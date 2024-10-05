@@ -29,10 +29,18 @@ cd allora-huggingface-walkthrough
 cd $HOME/allora-huggingface-walkthrough
 rm -f requirements.txt && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master/requirements.txt
 rm -f app.py && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master/app.py
-mkdir -p wl_backup
+# Tạo thư mục nếu nó chưa tồn tại
+mkdir -p $HOME/wl_backup
+
+# Tạo tên file sao lưu với timestamp
 backup_wl_file="wl_formated_$(date +'%Y%m%d_%H%M%S').txt"
+
+# Sao chép file
 cp $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
+
+# Thông báo
 echo "ĐÃ SAO CHÉP FILE VÀO $HOME/wl_backup"
+
 
 # Doc file wl_formated.txt va tao cac file cau hinh
 i=1
