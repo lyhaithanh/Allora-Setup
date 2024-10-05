@@ -26,8 +26,8 @@ cd allora-huggingface-walkthrough
 
 # Tải về các file cần thiết
 cd $HOME/allora-huggingface-walkthrough
-rm -f requirements.txt && wget --header="Authorization: token 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" https://raw.githubusercontent.com/batuoc263/prometheus-grafana-installer/master/dashboard-example/script/requirements.txt
-rm -f app.py && wget --header="Authorization: token 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" https://raw.githubusercontent.com/batuoc263/prometheus-grafana-installer/master/dashboard-example/script/app.py
+rm -f requirements.txt && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master//requirements.txt
+rm -f app.py && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/master/app.py
 
 # Tạo thư mục backup và di chuyển file
 mkdir -p wl_backup
