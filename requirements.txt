@@ -1,0 +1,5 @@
+flask[async]
+gunicorn[gthread]
+requests
+pandas
+python-dotenv
