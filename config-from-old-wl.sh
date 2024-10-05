@@ -32,7 +32,7 @@ rm -f app.py && wget https://raw.githubusercontent.com/lyhaithanh/Allora-Setup/m
 # Tạo thư mục backup và di chuyển file
 mkdir -p wl_backup
 backup_wl_file="wl_formated_$(date +'%Y%m%d_%H%M%S').txt"
-mv $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
+cp $HOME/wl_formated.txt $HOME/wl_backup/$backup_wl_file
 echo "DA BACK UP FILE VAO $HOME/wl_backup"
 
 # Đọc file wl_formated.txt từ thư mục backup và tạo các file cấu hình
