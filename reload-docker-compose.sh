@@ -60,7 +60,7 @@ volumes:
 EOF
 
 echo "==========Building...============"
-docker compose up --build -d
+docker-compose up --build -d
 
 curl -s http://127.0.0.1:8000/collect-price
 
