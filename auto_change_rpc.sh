@@ -47,7 +47,7 @@ while true; do
     echo "Bat dau ghi logs Docker Compose vao logs.txt..."
     
     # Ghi toan bo log cua Docker Compose vao logs.txt (log 1000 dong)
-    docker compose logs -n 1000 > "$LOG_FILE"
+    docker-compose logs -n 1000 > "$LOG_FILE"
 
     # Dem so lan loi "post failed" xuat hien trong log va loc ten container bi loi tren 10 lan
     echo "Quet loi 'post failed' trong logs.txt va tim cac container bi loi tren 10 lan..."
@@ -120,7 +120,7 @@ while true; do
 
                 # Khoi dong lai Docker container tuong ung ma khong dung cac dependencies
                 echo "Khoi dong lai Docker container worker$NUM..."
-                docker compose up -d --no-deps "worker$NUM"
+                docker-compose up -d --no-deps "worker$NUM"
 
                 # Kiem tra neu khoi dong lai thanh cong
                 if [[ $? -eq 0 ]]; then
